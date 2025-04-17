@@ -29,7 +29,12 @@
   <%# = submit_tag("Submit") %>
 <%# end %>
 <!--  -->
+
 <%= form_with model: @user do |form| %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+
   <%= form.label :username, "Your username here:" %>
   <%= form.text_field :username, value: "what a wacky name" %>
   
